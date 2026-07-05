@@ -18,7 +18,10 @@ public:
                       solve(a, i, k - 1) +
                       solve(a, k + 1, j) +
                       a[i - 1] * a[k] * a[j + 1]);
+            
         }
+
+       
 
         return dp[i][j] = ans;
     }
