@@ -1,9 +1,7 @@
 class Solution {
 public:
-
-    void bfs(vector<vector<char>>& Adj,
-             vector<vector<int>>& vis,
-             queue<pair<int,int>>& q) {
+int vis[301][301];
+    void bfs(vector<vector<char>>& Adj,queue<pair<int,int>>& q) {
 
         int n = Adj.size();
         int m = Adj[0].size();
@@ -45,7 +43,8 @@ public:
         int n = Adj.size();
         int m = Adj[0].size();
 
-        vector<vector<int>> vis(n, vector<int>(m, 0));
+        // vector<vector<int>> vis(n, vector<int>(m, 0));
+        memset(vis,0,sizeof(vis));
 
         int cnt = 0;
         queue<pair<int,int>> q;
@@ -58,7 +57,7 @@ public:
                     q.push({i, j});
                     vis[i][j] = 1;
 
-                    bfs(Adj, vis, q);
+                    bfs(Adj, q);
 
                     cnt++;
                 }
